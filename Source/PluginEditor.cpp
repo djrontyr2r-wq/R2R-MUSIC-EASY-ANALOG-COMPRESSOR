@@ -4,6 +4,7 @@ R2RMusicCompressorAudioProcessorEditor::R2RMusicCompressorAudioProcessorEditor(R
     : AudioProcessorEditor(&p), processor(p)
 {
     setSize(760, 470);
+    startTimerHz(12);
     title.setText("R2R MUSIC", juce::dontSendNotification);
     title.setFont(juce::Font(juce::FontOptions(30.0f, juce::Font::bold)));
     title.setColour(juce::Label::textColourId, juce::Colour(0xffff7a18));
@@ -46,7 +47,7 @@ void R2RMusicCompressorAudioProcessorEditor::setupSlider(Slider& s, const juce::
     s.setName(name);
 }
 
-void R2RMusicCompressorAudioProcessorEditor::paint(juce::Graphics& g)
+void R2RMusicCompressorAudioProcessorEditor::timerCallback()\n{\n    meterLabel.setText("GR  " + juce::String(processor.gainReductionDb.load(), 1) + " dB", juce::dontSendNotification);\n}\n\nvoid R2RMusicCompressorAudioProcessorEditor::paint(juce::Graphics& g)
 {
     g.fillAll(juce::Colour(0xff101010));
     g.setColour(juce::Colour(0xff242424));
