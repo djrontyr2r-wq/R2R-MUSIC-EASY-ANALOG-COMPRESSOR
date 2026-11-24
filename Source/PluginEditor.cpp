@@ -47,7 +47,12 @@ void R2RMusicCompressorAudioProcessorEditor::setupSlider(Slider& s, const juce::
     s.setName(name);
 }
 
-void R2RMusicCompressorAudioProcessorEditor::timerCallback()\n{\n    meterLabel.setText("GR  " + juce::String(processor.gainReductionDb.load(), 1) + " dB", juce::dontSendNotification);\n}\n\nvoid R2RMusicCompressorAudioProcessorEditor::paint(juce::Graphics& g)
+void R2RMusicCompressorAudioProcessorEditor::timerCallback()
+{
+    meterLabel.setText("GR  " + juce::String(processor.gainReductionDb.load(), 1) + " dB", juce::dontSendNotification);
+}
+
+void R2RMusicCompressorAudioProcessorEditor::paint(juce::Graphics& g)
 {
     g.fillAll(juce::Colour(0xff101010));
     g.setColour(juce::Colour(0xff242424));
