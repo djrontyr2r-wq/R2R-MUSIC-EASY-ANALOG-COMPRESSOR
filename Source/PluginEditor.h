@@ -1,12 +1,13 @@
 #pragma once
 #include "PluginProcessor.h"
 
-class R2RMusicCompressorAudioProcessorEditor final : public juce::AudioProcessorEditor
+class R2RMusicCompressorAudioProcessorEditor final : public juce::AudioProcessorEditor, private juce::Timer
 {
 public:
     explicit R2RMusicCompressorAudioProcessorEditor(R2RMusicCompressorAudioProcessor&);
     void paint(juce::Graphics&) override;
     void resized() override;
+    void timerCallback() override;
 private:
     using Slider = juce::Slider;
     R2RMusicCompressorAudioProcessor& processor;
